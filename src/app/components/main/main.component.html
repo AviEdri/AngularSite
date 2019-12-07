@@ -1,0 +1,15 @@
+<div class="loginContainer">
+
+    <form>
+        <input type="text" placeholder="User name" name="username" [(ngModel)]="userLoginDetails.userName"><br>
+        <input type="password" placeholder="Password" name="password" [(ngModel)]="userLoginDetails.password"><br>
+        <input type="button" (click)="login()" value="Login" />
+
+    </form>
+
+    <div >
+        <img id="logo" src="assets/LoginPagePng.png"/>
+    </div>
+
+
+</div>

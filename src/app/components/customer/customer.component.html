@@ -1,0 +1,73 @@
+<table class="table table-old" *ngIf="isShowAllCoupons">
+    <thead class="bg-primary white-text">
+        <!-- A table row -->
+        <tr>
+            <!-- A table header -->
+            <th scope="col">Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+
+    <tbody class="bg-success text-dark">
+        <tr *ngFor="let currentCoupon of coupons" (click)=[(showCoupon(currentCoupon))] data-toggle="modal" data-target="#myModal" >
+            <td>{{ currentCoupon.title }}</td>
+            <td>{{ currentCoupon.price }}</td>
+            <td>{{ currentCoupon.amount }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="container">             
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" (click)=[(showCoupons())]>&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+              </div>
+              <div class="modal-body">
+                  <p>Coupon : 10 Coke cans from Columbia<br>                             
+                  </p>
+              </div>
+              <div class="modal-footer">
+                  <div style = "text-align: left;">
+                  <h1>A teaser : </h1><br>
+                  <p>               
+                      Pay attention that we've registered in the html, a "purchase()" callback function to the onClick event.
+                      The function doesn't exist (a thing which we can see in the Chrome console, as an error message after 
+                      clicking the button), but when after we start wokring with Javascript, it could be implemented.
+                  </p>
+                  </div>
+                  <button type="button" (click)=[(purchaseCoupon())] class="btn btn-default" data-dismiss="modal">Purchase</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal" (click)=[(showCoupons())]>Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+
+<!-- <div *ngIf="!isShowAllCoupons" style="display: contents;" class="modal" tabindex="-1" role="dialog">
+    <div class=" modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>dfsdfsdsfs
+        </div>
+        <div class="modal-body">
+            <p>Modal body text goes here.</p>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div> -->
